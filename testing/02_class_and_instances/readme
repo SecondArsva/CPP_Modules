@@ -1,1 +1,1 @@
-g++ Sample.class.cpp main.cpp -o class_instance_example
+g++ Sample.class.cpp main.cpp
