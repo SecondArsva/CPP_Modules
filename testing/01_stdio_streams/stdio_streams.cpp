@@ -6,7 +6,7 @@ int main(void)
 
 	std::cout << "¡Hola mundo!" << std::endl;
 
-	std::cout << "Introduce una palabra" << std::endl;
+	std::cout << "Introduce una palabra: ";
 	std::cin >> buff;
 	std::cout << "Has introducido: ["<< buff <<"]" << std::endl;
 
