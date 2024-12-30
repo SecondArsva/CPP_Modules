@@ -16,9 +16,9 @@ class PhoneBook
 		PhoneBook();
 		~PhoneBook();
 
-		void		addContact();
-		void		searchContact();
-		std::string formatInfo(std::string str);
+		void	addContact();
+		void	searchContact();
+		void	formatInfo(std::string str);
 };
 
 #endif

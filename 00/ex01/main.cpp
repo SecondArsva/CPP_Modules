@@ -15,12 +15,16 @@ int main(void)
 		std::cin >> input;
 
 		if (!input.compare("ADD"))
+		{
 			instance.addContact();
+			//std::cout << std::setw(10);
+			//std::cout << "hola";
+		}
 		else if (!input.compare("SEARCH"))
 			instance.searchContact();
 		else if (!input.compare("EXIT"))
-			return (std::cout << "See you!" << std::endl, 0);
+			return (0);
 		else
-			std::cout << "Unknown command!" << std::endl << std::endl;
+			std::cout << "Unknown command: '" << input << "'" << std::endl;
 	}
 }

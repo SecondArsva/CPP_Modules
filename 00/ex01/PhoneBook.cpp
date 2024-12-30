@@ -1,6 +1,5 @@
 #include "PhoneBook.hpp"
 
-
 PhoneBook::PhoneBook()
 {
 	this->_oldestIndex = 0;
@@ -36,25 +35,55 @@ void PhoneBook::addContact()
 
 void PhoneBook::searchContact()
 {
-	std::cout << "|     index|first name| last name|  nickname|" << std::endl;
-	for (int i = 0; i < 9; i++)
+	// tabla de contactos
+	std::cout << std::endl << "|     index|first name| last name|  nickname|" << std::endl;
+	for (int i = 0; i < 8; i++)
 	{
-		std::cout << "|" << "         " << (int)i + 1 << "|";
-		// TODO: Fist Name, Last name y Nickname
-		std::cout << this->formatInfo(this->_contacts[i].getFirstName()) << "|";
-		std::cout << this->formatInfo(this->_contacts[i].getLastName()) << "|";
-		std::cout << this->formatInfo(this->_contacts[i].getNickname()) << "|";
-		std::cout << std::endl;
+		std::cout << "|         " << (i + 1) << "|";
+		if (!this->_contacts[i].getFirstName().empty())
+		{
+			this->formatInfo(this->_contacts[i].getFirstName()); std::cout << "|";
+			this->formatInfo(this->_contacts[i].getLastName());  std::cout << "|";
+			this->formatInfo(this->_contacts[i].getNickname());  std::cout << "|";
+			std::cout << std::endl;
+		}
+		else
+			std::cout << "          |          |          |" << std::endl;
 	}
+	std::cout << std::endl;
+	// búsqueda por índice
 	std::string index = "";
+	int			indexInt = 0;
 	std::cout << "Insert an index number to display the contact info: ";
 	std::cin >> index;
+	indexInt = atoi(index.c_str());
+	// control: Validez del índice
+	if (indexInt < 0 && indexInt > 8)
+	{
+		std::cout << std::endl << index << "'" << index << "'its not a valid index" << std::endl << std::endl;
+		return ;
+	}
+	// control: Existencia de clase
+	if (this->_contacts[indexInt - 1].getFirstName().empty())
+	{
+		std::cout << std::endl << "Empty contact" << std::endl << std::endl;
+		return ;
+	}
+	// impresión de los datos del contacto
+	std::cout << std::endl;
+	std::cout << "First Name:	" << this->_contacts[indexInt - 1].getFirstName() << std::endl;
+	std::cout << "Last Name:	" << this->_contacts[indexInt - 1].getLastName() << std::endl;
+	std::cout << "Nickame:	" << this->_contacts[indexInt - 1].getNickname() << std::endl;
+	std::cout << "Phone Number:	" << this->_contacts[indexInt - 1].getPhoneNumber() << std::endl;
+	std::cout << "Darkest Secret:	" << this->_contacts[indexInt - 1].getDarkestSecret() << std::endl;
+	std::cout << std::endl;
 }
 
-std::string PhoneBook::formatInfo(std::string str)
+void PhoneBook::formatInfo(std::string str)
 {
-	if (str.length() == 10)
-		return (str);
 	// TODO if < 10 go espaces | else if > 10 go dot .
-	return ("hola");
+	if (str.length() > 10)
+		std::cout << str.substr(0, 9) << ".";
+	else
+		std::cout << std::setfill(' ') << std::setw(10) << str;
 }
