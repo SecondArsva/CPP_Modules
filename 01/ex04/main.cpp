@@ -2,6 +2,21 @@
 #include <string>
 #include <fstream>
 
+void	replace(std::string filename, std::string finalResult)
+{
+	// Creación del archivo de remplazo, verificación de existencia y añadido de datos
+	std::string		fileReplacer = filename + ".replace";
+	std::ofstream	fileReplacerFD(fileReplacer.c_str());
+	if (!fileReplacerFD.is_open())
+	{
+		std::cout << "Error: Cannot create output file." << std::endl;
+		return ;
+	}
+	fileReplacerFD << finalResult;
+	std::cout << "Replacements done. Output saved to: " << fileReplacer << std::endl;
+}
+
+
 /* It will open the file "filename" and copies its content into a new file
    "filename.replace", replacing every occurrence of s1 with s2. */
 int main(int argc, char **argv)
@@ -47,13 +62,6 @@ int main(int argc, char **argv)
 		}
 	}
 
-	// Creación del archivo de remplazo, verificación de existencia y añadido de datos
-	std::string		fileReplacer = filename + ".replace";
-	std::ofstream	fileReplacerFD(fileReplacer.c_str());
-	if (!fileReplacerFD.is_open())
-		return (std::cout << "Error: Cannot create output file." << std::endl, 2);
-	fileReplacerFD << finalResult;
-
-	std::cout << "Replacements done. Output saved to: " << fileReplacer << std::endl;
+	replace(filename, finalResult);
 	return (0);
 }
