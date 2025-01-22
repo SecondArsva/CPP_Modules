@@ -21,6 +21,9 @@ class Sample
 		int _foo;
 };
 
+/* "string-sificación" de la clase.
+   Serialización de la clase a string para debugging.
+   No forma parte de la Canonical Form, pero puede ser útil. */
 std::ostream &operator<<(std::ostream &o, Sample const &i);
 
 #endif
