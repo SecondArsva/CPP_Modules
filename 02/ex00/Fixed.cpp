@@ -6,12 +6,6 @@ Fixed::Fixed():_fixedPointValue(0)
 	std::cout << "Default constuctor called" << std::endl;
 }
 
-// Constructor Overload
-Fixed::Fixed(int const n):_fixedPointValue(n)
-{
-	std::cout << "Overload constructor called with the value " << n << std::endl;
-}
-
 // Copy Constructor
 Fixed::Fixed(Fixed const &src)
 {
