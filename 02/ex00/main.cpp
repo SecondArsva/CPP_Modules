@@ -9,9 +9,9 @@ int	main(void)
 		Fixed	c;
 
 		c = b;
-		std::cout << "instance a: " << a.getRawBits() << std::endl;
-		std::cout << "instance b: " << b.getRawBits() << std::endl;
-		std::cout << "instance c: " << c.getRawBits() << std::endl;
+		std::cout << "instance a: " << std::endl << a.getRawBits() << std::endl;
+		std::cout << "instance b: " << std::endl << b.getRawBits() << std::endl;
+		std::cout << "instance c: " << std::endl << c.getRawBits() << std::endl;
 		// El ex00 termina aquí.
 	}
 	{
@@ -22,12 +22,12 @@ int	main(void)
 		Fixed	e;
 		Fixed	f(d);
 
-		std::cout << "instance d: " << d.getRawBits() << std::endl;
-		std::cout << "instance e: " << e.getRawBits() << std::endl;
-		std::cout << "instance f: " << f.getRawBits() << std::endl;
+		std::cout << "instance d: " << std::endl << d.getRawBits() << std::endl;
+		std::cout << "instance e: " << std::endl << e.getRawBits() << std::endl;
+		std::cout << "instance f: " << std::endl << f.getRawBits() << std::endl;
 		std::cout << std::endl;
 		e = d;
-		std::cout << "instance e: " << e.getRawBits() << std::endl;
+		std::cout << "instance e: " << std::endl << e.getRawBits() << std::endl;
 	}
 	return (0);
 }
