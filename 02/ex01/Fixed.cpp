@@ -14,6 +14,7 @@ Fixed::Fixed(Fixed const &src)
 Fixed::Fixed(int const value):_fixedPointValue(value)
 {
 	std::cout << "Int constructor called" << std::endl;
+    this->_fixedPointValue = value << this->_fractionalBits;
 }
 
 Fixed::Fixed(float const value)
