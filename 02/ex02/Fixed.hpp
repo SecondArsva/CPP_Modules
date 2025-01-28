@@ -35,7 +35,11 @@ class Fixed
     	Fixed &operator--();     // Pre-decrement
     	Fixed operator--(int);   // Post-decrement
 
-		// Faltan las cuatro funciones miembro raras del min max const 
+		// Static member functions
+		static Fixed const &min(Fixed &a, Fixed &b);
+		static Fixed const &min(Fixed const &a, Fixed const &b);
+		static Fixed const &max(Fixed &a, Fixed &b);
+		static Fixed const &max(Fixed const &a, Fixed const &b);
 
 		int 	getRawBits(void)const;		// Non-processed value getter
 		void	setRawBits(int const raw);	// Non-processed value setter

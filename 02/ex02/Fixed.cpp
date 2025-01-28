@@ -119,11 +119,34 @@ Fixed &Fixed::operator--()		// Pre-decrement
 	return (*this);
 }
 
-Fixed Fixed::operator++(int)	// Post-decrement
-{ 
-    Fixed temp(*this);
-    this->_fixedPointValue--;
-    return (temp);
+Fixed Fixed::operator--(int)	// Post-decrement
+{
+	Fixed temp(*this);
+	this->_fixedPointValue--;
+	return (temp);
+}
+
+// Static member functions
+// Ternaries (?:)
+// (if_condition_is_true) ? return_this_value : else_return_this_other
+Fixed const &Fixed::min(Fixed &a, Fixed &b)
+{
+	return ((a < b) ? a : b);
+}
+
+Fixed const &Fixed::min(Fixed const &a, Fixed const &b)
+{
+	return ((a < b) ? a : b);
+}
+
+Fixed const &Fixed::max(Fixed &a, Fixed &b)
+{
+	return ((a > b) ? a : b);
+}
+
+Fixed const &Fixed::max(Fixed const &a, Fixed const &b)
+{
+	return ((a > b) ? a : b);
 }
 
 // --- Member Functions ---
