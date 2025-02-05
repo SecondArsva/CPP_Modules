@@ -9,9 +9,10 @@ class ClapTrap
 	private:
 
 		std::string	_name;
-		int			_hitPoints = 10;
-		int			_energyPoints = 10;
-		int			_attackDamage = 0;
+		int	_hitPoints;
+		int	_energyPoints;
+		int	_attackDamage;
+
 	public:
 
 		ClapTrap(void);	// Default constructor
@@ -21,22 +22,9 @@ class ClapTrap
 
 		ClapTrap &operator=(ClapTrap const &rhs);	// Copy assignment operator overload
 
-		void	attack(const std::string &target);
+		void	attack(std::string const &target);
 		void	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);
-
-		// getters & setters
-		std::string	getName(void);
-		void		setName(std::string name);
-		
-		int		getHitPoints(void);
-		void	setHitPoints(int value);
-		
-		int		getEnergyPoints(void);
-		void	setEnergyPoints(int value);
-		
-		int		getAttackDamage(void);
-		void	setAttackDamage(int value);
 };
 
 #endif

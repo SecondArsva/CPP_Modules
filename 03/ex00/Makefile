@@ -6,7 +6,7 @@ CXXFLAGS = -std=c++98 -Werror -Wextra -Wall
 
 DIRECTORY = ./
 
-FILES = Fixed.cpp	\
+FILES = ClapTrap.cpp	\
 		main.cpp
 
 SOURCES  := $(addprefix $(DIRECTORY),$(FILES))
