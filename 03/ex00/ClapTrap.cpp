@@ -21,7 +21,6 @@ ClapTrap::~ClapTrap()
 	std::cout << "Destructor called" << std::endl;
 }
 
-// TODO
 ClapTrap	&ClapTrap::operator=(ClapTrap const &rhs)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
