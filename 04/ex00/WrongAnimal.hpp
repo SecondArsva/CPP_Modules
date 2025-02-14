@@ -12,7 +12,8 @@ class WrongAnimal
 		WrongAnimal();
 		WrongAnimal(WrongAnimal const &src);
 		WrongAnimal &operator=(WrongAnimal const &rhs);
-		virtual ~WrongAnimal();
+		~WrongAnimal(); /* Como el destructor de la clase base no es virtual,
+		no se liberará correctamente la clase derivada al usar "delete" */
 
 		void makeSound()const; /* No es virtual, por lo que causa problemas.
 		No hay polimorfismo */

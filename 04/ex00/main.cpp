@@ -8,15 +8,19 @@ int main(void)
 {
 	{
 		const Animal *meta = new Animal(); // Unknown base type
-		const Animal *j = new Dog();
 		const Animal *i = new Cat();
+		const Animal *j = new Dog();
 		
 		std::cout << meta->getType() << " " << std::endl;
-		std::cout << j->getType() << " " << std::endl;
 		std::cout << i->getType() << " " << std::endl;
+		std::cout << j->getType() << " " << std::endl;
 		meta->makeSound();
-		j->makeSound();
 		i->makeSound(); //will output the cat sound!
+		j->makeSound();
+
+		delete meta;
+		delete i;
+		delete j;
 	}
 	std::cout << std::endl;
 	{
@@ -27,7 +31,9 @@ int main(void)
 		std::cout << wrongCat->getType() << " " << std::endl;
 		wrongBase->makeSound();
 		wrongCat->makeSound();
-	}
 
+		delete wrongBase;
+		delete wrongCat;
+	}
 	return (0);
 }
