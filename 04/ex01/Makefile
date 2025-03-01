@@ -1,6 +1,6 @@
 NAME = the_ink_spots
 
-CXX = g++
+CXX = c++
 
 CXXFLAGS = -std=c++98 -Werror -Wextra -Wall
 

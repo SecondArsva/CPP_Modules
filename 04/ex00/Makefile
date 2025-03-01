@@ -1,6 +1,6 @@
 NAME = polymorphism
 
-CXX = g++
+CXX = c++
 
 CXXFLAGS = -std=c++98 -Werror -Wextra -Wall
 
