@@ -6,7 +6,7 @@ CXXFLAGS = -std=c++98 -Werror -Wextra -Wall
 
 DIRECTORY = ./
 
-FILES = Animal.cpp		\
+FILES = AAnimal.cpp		\
 		Cat.cpp			\
 		Dog.cpp			\
 		WrongAnimal.cpp	\

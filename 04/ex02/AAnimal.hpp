@@ -1,5 +1,5 @@
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef AAnimal_HPP
+# define AAnimal_HPP
 
 # include <iostream>
 # include <string>
@@ -11,15 +11,15 @@
 	cuando se eliminan a través de un puntero a la clase base.
 */
 
-class Animal
+class AAnimal
 {
 	protected:
 		std::string _type;
 	public:
-		Animal();
-		Animal(Animal const &src);
-		Animal &operator=(Animal const &rhs);
-		virtual ~Animal();
+		AAnimal();
+		AAnimal(AAnimal const &src);
+		AAnimal &operator=(AAnimal const &rhs);
+		virtual ~AAnimal();
 
 		virtual void makeSound()const = 0; /* Miembro virtual puro.
 		Hace que la clase sea abstracta. */
