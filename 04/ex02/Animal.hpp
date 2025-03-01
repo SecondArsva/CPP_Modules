@@ -21,7 +21,8 @@ class Animal
 		Animal &operator=(Animal const &rhs);
 		virtual ~Animal();
 
-		virtual void makeSound()const = 0; // Método virtual puro. Hace que la clase sea abstracta.
+		virtual void makeSound()const = 0; /* Miembro virtual puro.
+		Hace que la clase sea abstracta. */
 		std::string getType(void)const;
 		void		setType(std::string type);
 };
