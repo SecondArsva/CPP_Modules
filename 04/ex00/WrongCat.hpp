@@ -8,8 +8,6 @@
 
 class WrongCat : public WrongAnimal
 {
-	protected:
-		std::string _type;
 	public:
 		WrongCat();
 		WrongCat(WrongCat const &src);

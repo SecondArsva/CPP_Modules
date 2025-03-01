@@ -2,7 +2,7 @@ NAME = the_ink_spots
 
 CXX = c++
 
-CXXFLAGS = -std=c++98 -Werror -Wextra -Wall
+CXXFLAGS = -std=c++98 -Werror -Wextra -Wall -fsanitize=address,leak
 
 DIRECTORY = ./
 

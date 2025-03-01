@@ -20,7 +20,7 @@ Cat &Cat::operator=(Cat const &rhs)
 	if (this != &rhs)
 	{
 		this->_type = rhs.getType();
-		if (this->_brain)  // Liberar memoria previa
+		if (this->_brain)  // Lieración de la memoria previa a la copia el cerebro
 			delete this->_brain;
 		this->_brain = new Brain(*rhs.getBrain()); // Copia profunda
 	}

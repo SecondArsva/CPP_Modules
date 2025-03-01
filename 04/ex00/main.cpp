@@ -14,6 +14,7 @@ int main(void)
 		std::cout << meta->getType() << " " << std::endl;
 		std::cout << i->getType() << " " << std::endl;
 		std::cout << j->getType() << " " << std::endl;
+
 		meta->makeSound();
 		i->makeSound(); //will output the cat sound!
 		j->makeSound();
@@ -24,16 +25,17 @@ int main(void)
 	}
 	std::cout << std::endl;
 	{
-		const WrongAnimal *wrongBase = new WrongAnimal();
-		const WrongAnimal *wrongCat = new WrongCat();
+		const WrongAnimal *base = new WrongAnimal();
+		const WrongAnimal *cat = new WrongCat();
 
-		std::cout << wrongBase->getType() << " " << std::endl;
-		std::cout << wrongCat->getType() << " " << std::endl;
-		wrongBase->makeSound();
-		wrongCat->makeSound();
+		std::cout << base->getType() << " " << std::endl;
+		std::cout << cat->getType() << " " << std::endl;
+		
+		base->makeSound();
+		cat->makeSound();
 
-		delete wrongBase;
-		delete wrongCat;
+		delete base;
+		delete cat;
 	}
 	return (0);
 }
