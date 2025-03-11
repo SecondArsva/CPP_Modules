@@ -32,19 +32,20 @@ FragTrap::~FragTrap()
 	std::cout << "FragTrap " << this->_name << " destructor called" << std::endl;
 }
 
-void FragTrap::attack(std::string const &target)
+/*void FragTrap::attack(std::string const &target) // smeixoei advice
 {
 	if (this->_hitPoints <= 0)
 		std::cout << "FragTrap " << this->_name << " its already dead" << std::endl;
-	else if (this->_energyPoints <= 0)
+		else if (this->_energyPoints <= 0)
 		std::cout << "FragTrap " << this->_name << " has no energy to attack" << std::endl;
-	else
-	{
-		this->_energyPoints--;
-		std::cout << "FragTrap " << this->_name << " attacks " << target
-		<< ", causing " << this->_attackDamage << " points of damage" << std::endl;
-	}
-}
+		else
+		{
+			this->_energyPoints--;
+			std::cout << "FragTrap " << this->_name << " attacks " << target
+			<< ", causing " << this->_attackDamage << " points of damage" << std::endl;
+		}
+	}	
+*/
 
 void FragTrap::highFivesGuys()
 {
