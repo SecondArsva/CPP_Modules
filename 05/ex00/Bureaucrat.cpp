@@ -19,14 +19,19 @@ Bureaucrat &Bureaucrat::operator=(Bureaucrat const &rhs)
 	return (*this);
 }
 
-Bureaucrat::Bureaucrat(std::string const name, int grade) : _name(name)
-{
-	this->_grade = grade;
-}
-
 Bureaucrat::~Bureaucrat()
 {
+	
+}
 
+Bureaucrat::Bureaucrat(std::string const name, int grade) : _name(name)
+{
+	if (grade < 1)
+		throw GradeTooHighException();
+	else if (grade > 150)
+		throw GradeTooLowException();
+
+	this->_grade = grade;
 }
 
 std::string Bureaucrat::getName()const
@@ -39,18 +44,32 @@ int Bureaucrat::getGrade()const
 	return (this->_grade);
 }
 
+const char *Bureaucrat::GradeTooHighException::what() const throw()
+{
+	return ("exception: grade is too high");
+}
+
+const char *Bureaucrat::GradeTooLowException::what() const throw()
+{
+	return ("exception: grade is too low");
+}
+
 void Bureaucrat::incrementGrade()
 {
+	if (this->_grade == 1)
+		throw GradeTooHighException();
 	this->_grade--;
 }
 
-
 void Bureaucrat::decrementGrade()
 {
+	if (this->_grade == 150)
+		throw GradeTooLowException();
 	this->_grade++;
 }
 
-void Bureaucrat::operator<<(Bureaucrat const &rhs)
+std::ostream &operator<<(std::ostream &stream, Bureaucrat const &rhs)
 {
-	std::cout << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << ".";
+	stream << rhs.getName() << ", bureaucrat grade " << rhs.getGrade();
+	return (stream);
 }

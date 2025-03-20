@@ -3,6 +3,7 @@
 
 # include <iostream>
 # include <string>
+# include <exception>
 
 class Bureaucrat
 {
@@ -19,11 +20,31 @@ class Bureaucrat
 
 		std::string getName()const;
 		int	getGrade()const;
-
+		
+		class GradeTooHighException : public std::exception
+		{
+			public:
+				virtual const char *what() const throw();
+		};
+		
+		class GradeTooLowException : public std::exception
+		{
+			public:
+				virtual const char *what() const throw();
+		};
+		
 		void incrementGrade();
 		void decrementGrade();
-
-		void operator<<(Bureaucrat const &rhs)
+		
 };
+
+/* Sobrecarga del operador << como función no miembro:
+ * -----------------------------------------------
+ * - No puede ser un método de la clase porque el primer operando
+ *   (std::ostream) no es un miembro de Bureaucrat.
+ * - Se define fuera de la clase para seguir la convención estándar
+ *   de sobrecarga de operadores.
+ */
+std::ostream &operator<<(std::ostream &stream, Bureaucrat const &rhs);
 
 #endif
