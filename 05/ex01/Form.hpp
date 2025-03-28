@@ -24,13 +24,19 @@ class Form
 		class GradeTooHighException : public std::exception
 		{
 			public:
-				const char *what() const throw();
+				const char *what() const throw()
+				{
+					return ("exception: grade is too high");
+				}
 		};
 
 		class GradeTooLowException : public std::exception
 		{
 			public:
-				const char *what() const throw();
+				const char *what() const throw()
+				{
+					return ("exception: grade is too low");
+				}
 		};
 
 		std::string getName()const;
@@ -38,7 +44,7 @@ class Form
 		int getSignGrade()const;
 		int getExecGrade()const;
 		
-		void beSigned(Bureaucrat const user);
+		void beSigned(Bureaucrat const signer);
 };
 
 std::ostream &operator<<(std::ostream os, Form const &rhs);
