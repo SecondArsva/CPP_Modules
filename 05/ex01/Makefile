@@ -1,4 +1,4 @@
-NAME = m05ex00
+NAME = m05ex01
 
 CXX = c++
 
