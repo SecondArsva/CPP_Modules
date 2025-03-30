@@ -53,17 +53,18 @@ int Form::getExecGrade()const
 	return (this->_execGrade);
 }
 
-void Form::beSigned(Bureaucrat const signer)
+void Form::beSigned(Bureaucrat const &signer)
 {
 	if (signer.getGrade() > this->_signGrade)
 		throw GradeTooLowException();
-	this->_signed == true;
+	this->_signed = true;
 }
 
-std::ostream &operator<<(std::ostream os, Form const &rhs)
+std::ostream &operator<<(std::ostream &os, Form const &rhs)
 {
 	os << "Form: " << rhs.getName() << std::endl
 	<< "\t Signed: " << rhs.getSigned() << std::endl
 	<< "\t Min grade to sign: " << rhs.getSignGrade() << std::endl
 	<< "\t Min grade to exec: " << rhs.getExecGrade() << std::endl;
+	return(os);
 }

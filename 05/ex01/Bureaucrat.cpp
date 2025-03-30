@@ -79,7 +79,6 @@ void Bureaucrat::signForm(Form &toSign)
 	{
 		std::cout << this->_name << " couldn't sign " << toSign.getName() << " because " << e.what() << std::endl;
 	}
-	
 }
 
 std::ostream &operator<<(std::ostream &stream, Bureaucrat const &rhs)

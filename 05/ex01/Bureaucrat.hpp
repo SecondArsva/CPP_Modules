@@ -6,6 +6,8 @@
 # include <exception>
 # include "Form.hpp"
 
+class Form; // Evita el problema de dependencia circular
+
 class Bureaucrat
 {
 	private:

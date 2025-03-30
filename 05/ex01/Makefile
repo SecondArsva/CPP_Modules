@@ -7,6 +7,7 @@ CXXFLAGS = -std=c++98 -Werror -Wextra -Wall
 DIRECTORY = ./
 
 FILES = Bureaucrat.cpp	\
+		Form.cpp		\
 		main.cpp
 
 SOURCES  := $(addprefix $(DIRECTORY),$(FILES))
