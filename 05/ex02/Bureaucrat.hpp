@@ -4,9 +4,9 @@
 # include <iostream>
 # include <string>
 # include <exception>
-# include "Form.hpp"
+# include "AForm.hpp"
 
-class Form; // Evita el problema de dependencia circular
+class AForm; // Evita el problema de dependencia circular
 
 class Bureaucrat
 {
@@ -39,7 +39,9 @@ class Bureaucrat
 		void incrementGrade();
 		void decrementGrade();
 		
-		void signForm(Form &form);
+		void signForm(AForm &form);
+
+		void executeForm(AForm const &form);
 };
 
 /* Sobrecarga del operador << como función no miembro:
