@@ -35,5 +35,11 @@ void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 		throw GradeTooLowException();
 	if (!this->getSigned())
 		throw UnsignedFormException();
-	// do the thing
+
+	int randomNumber = rand();
+	std::cout << "* BZZZZZZZZZZZZT * (some drilling noises...)" << std::endl;
+	if (randomNumber % 2 == 0)
+		std::cout << this->_target << " has been robotomized successfully!" << std::endl;
+	else
+		std::cout << "Robotomy failed on " << this->_target << "..." << std::endl;
 }
