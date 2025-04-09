@@ -31,7 +31,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target) : AForm(
 
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
-	if (executor.getGrade() < this->getExecGrade())
+	if (executor.getGrade() > this->getExecGrade())
 		throw GradeTooLowException();
 	if (!this->getSigned())
 		throw UnsignedFormException();
@@ -41,7 +41,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 	std::ofstream outFile(cString);
 
 	if (outFile.is_open())
-	{
+	{	
 		outFile <<
 		"*########*##%##%%%%%%#####+#####**#+**#**#**#%#%##%%*#*+*###\n" <<
 		"%#*##*%%%%%#%#%####*#+####+####*#***###*#######%%%%#*##*##*#\n" <<
@@ -83,7 +83,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 		"%%%#%%%%#%%%%%%%%%%%####%%%%%%%%%####%@%%%%@@%%%%%%%###%@@@@\n" <<
 		"%%%%%%%%%#%%%%%%%######%%@%%%%%#%%%%#%%%%%%%%%%%%%%%%##%@@@@\n" <<
 		"@@@%%@@%%%%%%%%######%%#@%@%@@%%%%%%%%%%%%@%%%%%%%%%@%#@@@@@\n" <<
-		"@@@@@@@@%@%%@%%%%%%##%#%@@@@@@@@@@@%@%%%%%%%%@%%%%%%@%%@@@@@\n" ;
+		"@@@@@@@@%@%%@%%%%%%##%#%@@@@@@@@@@@%@%%%%%%%%@%%%%%%@%%@@@@@\n";
 	}
 	outFile.close();
 }

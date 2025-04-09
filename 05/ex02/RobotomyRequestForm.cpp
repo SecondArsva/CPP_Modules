@@ -1,11 +1,11 @@
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm() : AForm("DefaultRobotomy", 72, 52)
+RobotomyRequestForm::RobotomyRequestForm() : AForm("DefaultRobotomy", 72, 45)
 {
 	this->_target = "Uranus";
 }
 
-RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &src) : AForm("DefaultRobotomy", 72, 52)
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &src) : AForm("DefaultRobotomy", 72, 45)
 {
 	*this = src;
 }
@@ -24,14 +24,14 @@ RobotomyRequestForm::~RobotomyRequestForm()
 
 }
 
-RobotomyRequestForm::RobotomyRequestForm(std::string const &target) : AForm("DefaultRobotomy", 72, 52)
+RobotomyRequestForm::RobotomyRequestForm(std::string const &target) : AForm("DefaultRobotomy", 72, 45)
 {
 	this->_target = target;
 }
 
 void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
-	if (executor.getGrade() < this->getExecGrade())
+	if (executor.getGrade() > this->getExecGrade())
 		throw GradeTooLowException();
 	if (!this->getSigned())
 		throw UnsignedFormException();

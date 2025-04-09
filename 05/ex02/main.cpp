@@ -1,44 +1,45 @@
 #include <iostream>
 #include <string>
 #include <exception>
+#include <cstdlib>  // Para srand(), rand()
+#include <ctime>    // Para time()
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
+
 
 int main()
 {
+	std::srand(std::time(NULL)); // Inicializa la semilla para rand() una sola vez
+
     try
-    {
-        Bureaucrat carrera("José Miguel Carrera", 1);
-        Bureaucrat español("Gobernador Español", 150);
-        Bureaucrat mapuche("Toqui", 42);
-		//Bureaucrat anacronismo("Augusto Pinochet", 999); // Caso de excepcion en este alcance/scope.
+	{
+		Bureaucrat signer("El Firmas", 25);
+		Bureaucrat exe("Ejecutor", 5);
+		Bureaucrat egg("Exeggutor", 45);
 
-        Form independencia("Acta de Independencia de Chile", 1, 1);
-        Form permisoReal("Permiso Real de España", 150, 150);
-        Form pachamama("Qulqi Uru", 42, 42);
-		//Form anacronismo("Cerveza Cristal", 999, 999); // Caso de excepcion en este alcance/scope.
-		//Form anacronismo("Pablo Neruda", 20, -1); // Caso de excepcion en este alcance/scope.
+		AForm *shru = new ShrubberyCreationForm("Deku");
+		AForm *robo = new RobotomyRequestForm("Master Chief");
+		AForm *pres = new PresidentialPardonForm("Bumblebee");
 
-        std::cout << carrera << std::endl;
-        std::cout << español << std::endl;
-        std::cout << mapuche << std::endl;
-        std::cout << independencia << std::endl;
-        std::cout << permisoReal << std::endl;
-        std::cout << pachamama << std::endl;
+		signer.signForm(*shru);
+		signer.signForm(*robo);
+		signer.signForm(*pres);
 
-        carrera.signForm(independencia);
-        español.signForm(permisoReal);
-        español.signForm(pachamama); // El español cree en Dios, no en la tierra
+		exe.executeForm(*shru);
+		exe.executeForm(*robo);
+		exe.executeForm(*pres);
 
-        std::cout << independencia << std::endl;
-        std::cout << permisoReal << std::endl;
-        std::cout << pachamama << std::endl;
-    }
-    catch (std::exception &e)
-    {
-        std::cerr << "Exception caught: " << e.what() << std::endl;
-    }
+		delete shru;
+		delete robo;
+		delete pres;
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << "Exception caught: " << e.what() << std::endl;
+	}
     
-    return 0;
+    return (0);
 }

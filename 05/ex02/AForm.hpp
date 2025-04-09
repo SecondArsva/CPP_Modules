@@ -19,7 +19,7 @@ class AForm
 		AForm();
 		AForm(AForm const &src);
 		AForm &operator=(AForm const &rhs);
-		~AForm();
+		virtual ~AForm();
 
 		AForm(std::string const name, int const signGrade, int const execGrade);
 
