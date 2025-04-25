@@ -1,8 +1,8 @@
 #include <iostream>
 #include <string>
 #include <exception>
-#include <cstdlib>  // Para srand(), rand()
-#include <ctime>    // Para time()
+#include <cstdlib>  // Para srand(), rand().
+#include <ctime>    // Para time().
 
 #include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
@@ -10,21 +10,21 @@
 #include "PresidentialPardonForm.hpp"
 #include "Intern.hpp"
 
-
 int main()
 {
-	std::srand(std::time(NULL)); // Inicializa la semilla para rand() una sola vez
+	std::srand(std::time(NULL)); // Inicializa la semilla para la función rand() una sola vez.
 
 	try
 	{
 		Bureaucrat god("God", 1);
 		Intern doomer;
-		AForm *shru = doomer.makeForm("shrubbery creation", "yo mama");
-		AForm *robo = doomer.makeForm("robotomy request", "yo mama");
-		AForm *pres = doomer.makeForm("presidential pardon", "yo mama");
-		AForm *unkn = doomer.makeForm("phone call", "yo mama"); // <- Esto va a ser NULL
+		std::string target = "yo_mama";
+		AForm *shru = doomer.makeForm("shrubbery creation", target);
+		AForm *robo = doomer.makeForm("robotomy request", target);
+		AForm *pres = doomer.makeForm("presidential pardon", target);
+		AForm *unkn = doomer.makeForm("phone call", target); // <- Esto va a ser NULL.
 
-		// Firmar y ejecutar solo si los formularios existen
+		// Firmar y ejecutar solo si los formularios existen.
 		if (shru)
 		{
 			god.signForm(*shru);
@@ -49,16 +49,16 @@ int main()
 			god.executeForm(*unkn);
 		}
 
-		// Limpieza
+		// Limpieza.
 		delete shru;
 		delete robo;
 		delete pres;
-		delete unkn; // Es seguro hacer delete nullptr
+		delete unkn; // Es seguro hacer un delete incluso del NULL pointer.
 	}
 	catch(const std::exception &e)
 	{
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
-	   
+
     return (0);
 }

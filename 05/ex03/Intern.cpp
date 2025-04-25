@@ -26,9 +26,9 @@ Intern::~Intern()
 
 AForm *Intern::makeForm(std::string formName, std::string formTarget)
 {
-	int const total = 3;
-	std::string const formsNames[total] = {"shrubbery creation", "robotomy request", "presidential pardon"};
-	for (size_t i = 0; i < total; i++)
+	int const totalForms = 3;
+	std::string const formsNames[totalForms] = {"shrubbery creation", "robotomy request", "presidential pardon"};
+	for (size_t i = 0; i < totalForms; i++)
 	{
 		if (formsNames[i] == formName)
 		{
@@ -47,6 +47,7 @@ AForm *Intern::makeForm(std::string formName, std::string formTarget)
 			}
 		}
 	}
+	
 	std::cout << "Wait, that form '" << formName << "' doesn't exist!" << std::endl;
 	return (NULL);
 }
