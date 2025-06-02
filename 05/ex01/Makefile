@@ -1,26 +1,26 @@
 NAME = m05ex01
 
 CXX = c++
-
-CXXFLAGS = -std=c++98 -Werror -Wextra -Wall
+CXXFLAGS = -std=c++98 -Wall -Wextra -Werror -MMD -MP
 
 DIRECTORY = ./
-
 FILES = Bureaucrat.cpp	\
 		Form.cpp		\
 		main.cpp
 
-SOURCES  := $(addprefix $(DIRECTORY),$(FILES))
-
-OBJECTS = $(SOURCES:.cpp=.o)
+SOURCES := $(addprefix $(DIRECTORY),$(FILES))
+OBJECTS := $(SOURCES:.cpp=.o)
+DEPS := $(OBJECTS:.o=.d)
 
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
 	$(CXX) $(CXXFLAGS) $(OBJECTS) -o $(NAME)
 
+-include $(DEPS)
+
 clean:
-	$(RM) $(OBJECTS)
+	$(RM) $(OBJECTS) $(DEPS)
 
 fclean: clean
 	$(RM) $(NAME)

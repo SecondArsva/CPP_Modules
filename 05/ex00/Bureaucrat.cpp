@@ -5,9 +5,9 @@ Bureaucrat::Bureaucrat() : _name("Default")
 	this->_grade = 150;
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat const &src)
+Bureaucrat::Bureaucrat(Bureaucrat const &src) : _name(src._name)
 {
-	*this = src;
+	this->_grade = src._grade;
 }
 
 Bureaucrat &Bureaucrat::operator=(Bureaucrat const &rhs)
