@@ -5,10 +5,11 @@ AForm::AForm() : _name("Default"), _signGrade(150), _execGrade(150)
 	this->_signed = 0;
 }
 
-AForm::AForm(AForm const &src) : _name(src.getName()), _signGrade(src.getSignGrade()), _execGrade(src.getExecGrade())
+AForm::AForm(AForm const &src) : _name(src._name), _signed(src._signed), _signGrade(src._signGrade), _execGrade(src._execGrade)
 {
-	this->_signed = src._signed;
+	
 }
+
 
 AForm &AForm::operator=(AForm const &rhs)
 {
