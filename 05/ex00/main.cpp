@@ -39,9 +39,13 @@ int main(void)
 	{
 		Bureaucrat panza("Panza", 42);
 		Bureaucrat npc("NPC", 142);
+		Bureaucrat unk(npc);
+		Bureaucrat nown = panza;
 		npc = panza;
 		npc.incrementGrade();
 		std::cout << npc << std::endl;
+		std::cout << unk << std::endl;
+		std::cout << nown << std::endl;
 	}
 	catch(const std::exception &e)
 	{
