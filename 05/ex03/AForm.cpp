@@ -7,7 +7,7 @@ AForm::AForm() : _name("Default"), _signGrade(150), _execGrade(150)
 
 AForm::AForm(AForm const &src) : _name(src.getName()), _signGrade(src.getSignGrade()), _execGrade(src.getExecGrade())
 {
-	*this = src;
+	this->_signed = src._signed;
 }
 
 AForm &AForm::operator=(AForm const &rhs)

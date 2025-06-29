@@ -7,7 +7,7 @@ Form::Form() : _name("Default"), _signGrade(150), _execGrade(150)
 
 Form::Form(Form const &src) : _name(src.getName()), _signGrade(src.getSignGrade()), _execGrade(src.getExecGrade())
 {
-	*this = src;
+	this->_signed = src._signed;
 }
 
 Form &Form::operator=(Form const &rhs)
