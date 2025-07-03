@@ -1,4 +1,4 @@
-NAME = m05ex02
+NAME = m05ex03
 
 CXX = c++
 CXXFLAGS = -std=c++98 -Wall -Wextra -Werror -MMD -MP
