@@ -1,0 +1,7 @@
+La siguiente regla se aplica a todo el módulo y no es
+opcional.
+
+En cada ejercicio, el tipo de conversión debe resolverse
+usando un tipo específico de casting. Las elecciones
+serán revisadas en la corrección.
+
