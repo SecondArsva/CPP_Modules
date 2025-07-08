@@ -5,3 +5,50 @@ En cada ejercicio, el tipo de conversión debe resolverse
 usando un tipo específico de casting. Las elecciones
 serán revisadas en la corrección.
 
+ex00:
+
+Clase ScalarConverter que contiene un método "convert"
+que pilla un parámetro como un string literal de C++
+en su forma común y devuelve su valor en cada uno de
+los siguientes tipos: char, int, float y double.
+
+Como esta clase no tiene que almacenar nada, no debe
+que ser instanciada por usuarios.
+(Constructores privados)
+
+Excepto para los parámetros char, solo se usará la
+notación decimal.
+
+Ejemplos de char: 'c', 'a', ...
+Los caracteres no imprimibles no se tomarán como inputs
+Si una conversión a char no es representable, imprime
+un mensaje informando de ello.
+
+int: 0, -42, 42, ...
+
+float: 0.0f, -4.2f, 4.2f, ...
+Se han de gestionar también los pseudo-literales:
+	-inff y +inff
+	(infinitos negativo y positivo en float)
+
+double: 0.0, -4.2, 4.2, ...
+Gestiona también los pseudo: -inf, +inf y nan
+
+inff y inf simbolizan el mismo número, infinito.
+El mayor número a todos y el menor, según se use "+" o
+"-". El primero es en float y el segundo en double. 
+nan simboliza NaN, que es "Not a number", el resultado
+de una operación cuyo resultado no está definido.
+
+Tanto float como double son tipos de datos de punto
+flotante utilizados para representar números reales.
+(https://www.youtube.com/watch?v=xOjQ3u7jSLQ&t=235s)
+
+float se usa en sistemas embebidos, donde la memoria
+es limitada, así como en gráficos 3D o cálculos donde
+el rendimiento es prioritario y no se ha de ser tan
+preciso.
+
+double es usado en casos donde se necesita mayor
+precisión, como en cálculos científicos o financieros.
+Evita problemas de redondeo acumulativos.
