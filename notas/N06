@@ -52,3 +52,6 @@ preciso.
 double es usado en casos donde se necesita mayor
 precisión, como en cálculos científicos o financieros.
 Evita problemas de redondeo acumulativos.
+
+---------------------------------------------------
+
