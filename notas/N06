@@ -55,3 +55,32 @@ Evita problemas de redondeo acumulativos.
 
 ---------------------------------------------------
 
+ex01:
+
+Implementa una clase Serializer, que no sea
+inicializable por el usuario de ninguna forma, con los
+siguientes dos métodos estáticos. 
+
+uintptr_t serialize(Data *ptr);
+Pilla un puntero y lo convierte en un entero sin signo
+de tipo uintptr_t.
+
+Data *deserializer(uintptr_t raw);
+Pilla un entero sin signo y lo convierte en un puntero
+a Data.
+
+Escribe un programa que testeé que la clase funciona
+como se espera.
+
+Debes crear una estructura Data que no esté vacía
+(es decir, que contenga miembros de datos).
+
+Usa serialize() en la dirección del objeto Data y pasa
+su valor de retorno a deserialize(). Luego asegúrate
+de que el valor de retorno de deserialize() sea igual
+al puntero original.
+
+No olvides entregar los archivos de tu estructura Data.
+
+En una estructura, todo es público por defecto.
+En una clase, todo es privado por defecto.
