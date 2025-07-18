@@ -1,4 +1,3 @@
-# Makefile
 NAME = whatever
 
 CXX = c++
