@@ -16,8 +16,22 @@ void print_container(Container const &container, std::string const &name)
 
 int bad_args(int argc, char **argv)
 {
-	(void)argc;
-	(void)argv;
+	int i = 1;
+	int j = 0;
+	while (i < argc && argv[i] != NULL)
+	{
+		while (argv[i][j] != '\0')
+		{
+			if (j == 0 && argv[i][j] == '-')
+				j++;
+			else if (argv[i][j] >= '0' && argv[i][j] <= '9')
+				j++;
+			else
+				return (std::cout << "error: no number detected" << std::endl, 1);
+		}
+		i++;
+		j = 0;
+	}
 	return (0);
 }
 
@@ -26,7 +40,7 @@ void test_vector(std::vector<int> &v, int to_find)
 	try
 	{
 		std::vector<int>::iterator it = easyfind(v, to_find);
-		std::cout << "Found: " << *it << " in vector" << std::endl;
+		std::cout << "Found: " << &(*it) << ": " << *it << " in vector" << std::endl;
 	}
 	catch (const std::exception& e)
 	{
@@ -39,7 +53,7 @@ void test_deque(std::deque<int> &d, int to_find)
 	try
 	{
 		std::deque<int>::iterator it = easyfind(d, to_find);
-		std::cout << "Found: " << *it << " in deque" << std::endl;
+		std::cout << "Found: " << &(*it) << ": " << *it << " in deque" << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -52,12 +66,18 @@ void test_list(std::list<int> &l, int to_find)
 	try
 	{
 		std::list<int>::iterator it = easyfind(l, to_find);
-		std::cout << "Found" << *it << " in list" << std::endl;
+		std::cout << "Found: " << &(it) << ": " << *it << " in list" << std::endl;
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
+}
+
+void print_array(int *array, int size)
+{
+	for (int i = 0; i < size; i++)
+	std::cout << array[i] << std::endl;
 }
 
 int *fill_array(int size, char **argv)
@@ -66,8 +86,7 @@ int *fill_array(int size, char **argv)
 
 	for (int i = 0; i < size; i++)
 		array[i] = std::atoi(argv[i + 1]);
-	for (int i = 0; i < size; i++)
-		std::cout << array[i] << std::endl;
+	//print_array(array, size);
 	return(array);
 }
 
@@ -81,7 +100,7 @@ int main(int argc, char **argv)
 		"Los valores que precedan al argumento de la ejecución del programa serán introducidos\n"
 		"en los diferentes contenedores para realizar las pruebas con la función plantilla\n"
 		"easyfind(), a excepción del último valor, que corresponderá al que se deberá encontrar\n"
-		"dentro del contenedor. Contenedores: vetor, deque y list.\n\n"
+		"dentro del contenedor. Contenedores: vector, deque y list.\n\n"
 		"Ejemplo: './easyfind -42 115' <---( to_find )\n";
 		return (1);
 	}
