@@ -1,0 +1,69 @@
+Reglas específicas del módulo
+
+Observarás que, en este módulo, los ejercicios se pueden resolver
+SIN los contenedores estándar ni SIN los algoritmos estándar.
+
+Sin embargo, su uso es precisamente el objetivo de este módulo.
+Puedes usar el STL. Sí, puedes usar los contenedores (vector, lista, mapa, etc.)
+y los algoritmos (definidos en el encabezado <algorithm>).
+
+Además, debes usarlos tanto como puedas.
+Por lo tanto, esfuérzate por aplicarlos siempre que sea apropiado.
+
+Recibirás una muy mala calificación si no lo haces,
+incluso si tu código funciona como se espera. Por favor, no seas perezoso.
+
+Puedes definir tus plantillas en los archivos de encabezado como de costumbre.
+O, si lo prefieres, puedes escribir las declaraciones de tus plantillas en los
+archivos de encabezado y sus implementaciones en archivos .tpp.
+En cualquier caso, los archivos de encabezado son obligatorios,
+mientras que los archivos .tpp son opcionales.
+
+ex00:
+
+Un primer ejercicio sencillo es la mejor manera de empezar con buen pie.
+
+Escribe una plantilla de función llamada "easyfind" que acepte un tipo T. Toma dos parámetros. El primero es de tipo T y el segundo es un entero.
+
+Suponiendo que T es un contenedor de enteros, esta función debe encontrar la primera ocurrencia del segundo parámetro en el primer parámetro.
+
+Si no se encuentra ninguna ocurrencia, puedes lanzar una excepción o devolver un valor de error a tu elección. Si necesitas inspiración, analiza el comportamiento de los contenedores estándar.
+
+Por supuesto, implementa y entrega tus propias pruebas para asegurarte de que todo funciona correctamente.
+
+(i) No es necesario gestionar contenedores asociativos.
+
+find:
+https://cplusplus.com/reference/Algorithm/Find/
+
+Containers library:
+https://en.cppreference.com/w/cpp/container.html
+
+Exception types:
+https://cppreference.com/w/cpp/error/exception.html
+
+Iteratos in C++ STL:
+https://www.geeksforgeeks.org/cpp/iterators-c-stl/
+
+Containers available C++98
+	
+	Sequence containers implement data structures which can be accessed sequentially.
+		- vector: resizable contiguous array
+		- deque: double-ended queue
+		- list: doubly-linked list
+	
+	Associative containers implement sorted data structures that can be quickly searched (O(log n) complexity).
+		- set: collection of unique keys, sorted by keys 
+		- map: collection of key-value pairs, sorted by keys, keys are unique 
+		- multiset: collection of keys, sorted by keys 
+		- multimap: collection of key-value pairs, sorted by keys
+
+	Container adaptors provide a different interface for sequential containers.
+		- stack: adapts a container to provide stack (LIFO data structure)
+		- queue: adapts a container to provide queue (FIFO data structure)
+		- priority_queue: adapts a container to provide priority queue
+
+	De cara al ejercicio me centraré solo en los contenedores secuenciales, ya que
+	de forma explicita en el ejercicio se dice que no es necesario gestionar contenedores asociativos, y en el caso de los contenedores adaptadores estos no
+	exponen iteradores, no pudiendo hacer "stack.begin()" o "queue.end()" y por ello
+	no se puede usar "std::find()" con ellos.
