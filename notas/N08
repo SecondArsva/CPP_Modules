@@ -67,3 +67,25 @@ Containers available C++98
 	de forma explicita en el ejercicio se dice que no es necesario gestionar contenedores asociativos, y en el caso de los contenedores adaptadores estos no
 	exponen iteradores, no pudiendo hacer "stack.begin()" o "queue.end()" y por ello
 	no se puede usar "std::find()" con ellos.
+
+ex01:
+
+Desarrolla una clase Span que pueda almacenar un máximo de N enteros.
+N es una variable int sin signo y será el único parámetro pasado al constructor.
+
+Esta clase tendrá una función miembro llamada addNumber() para añadir
+un solo número al Span. Se utilizará para llenarlo. Cualquier intento
+de añadir un nuevo elemento si ya hay N elementos almacenados debería
+generar una excepción.
+
+A continuación, implementa dos funciones miembro:
+	shortestSpan() y longestSpan().
+
+Estas encontrarán respectivamente el intervalo más corto o el más largo
+(o la distancia, si lo prefieres) entre todos los números almacenados
+y lo devolverán. Si no hay números almacenados, o solo hay uno, no se
+puede encontrar ningún span. Por lo tanto, se genera una excepción.
+
+Por supuesto, escribirás tus propias pruebas, que serán mucho más
+exhaustivas que las que se muestran a continuación. Prueba tu Span con
+al menos 10 000 números. Con más, sería aún mejor.

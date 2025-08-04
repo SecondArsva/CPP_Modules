@@ -64,10 +64,10 @@ void Span::addRange(std::vector<int>::iterator begin, std::vector<int>::iterator
 
 const char *Span::NoMoreRoomInHellException::what() const throw()
 {
-	return ("Span is already full");
+	return ("Exception: Span is already full");
 }
 
 const char* Span::NotEnoughElementsException::what()const throw()
 {
-	return ("No enought elements to calculate a span");
+	return ("Exception: Not enough elements to calculate a span");
 }
