@@ -55,6 +55,13 @@ unsigned int Span::longestSpan() const
     return max - min;
 }
 
+void Span::addRange(std::vector<int>::iterator begin, std::vector<int>::iterator end)
+{
+	if (_numbers.size() + std::distance(begin, end) > _maxSize)
+		throw NoMoreRoomInHellException();
+	_numbers.insert(_numbers.end(), begin, end);
+}
+
 const char *Span::NoMoreRoomInHellException::what() const throw()
 {
 	return ("Span is already full");
