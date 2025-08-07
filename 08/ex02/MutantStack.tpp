@@ -14,7 +14,7 @@ MutantStack<T> &MutantStack<T>::operator=(MutantStack const &rhs)
 {
 	if (this != &rhs)
 	{
-		std::stack<T>::operator=(src);
+		std::stack<T>::operator=(rhs);
 	}
 	return (*this);
 }
