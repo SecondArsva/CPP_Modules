@@ -1,6 +1,6 @@
 # 42 CPP Modules
 
-Acercamiento al lenguaje de programación C++ de mano de la
+Módulos de la escuela 42 dedicados al aprendizaje de la programación orientada a objetos mediante el lenguaje C++ en su estándar C++98. Diseñados para enseñar los fundamentos de manera progresiva y práctica, abordando conceptos esenciales como manejo de memoria, sobrecarga de operadores, herencia, polimorfismo y el uso de las librerías estándar.
 
 ---
 
