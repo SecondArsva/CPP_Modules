@@ -30,6 +30,18 @@ Módulos de la escuela 42 dedicados al aprendizaje de la programación orientada
 ## Módulo 06: Conversiones de Tipo
 
 ### Exercise 00: Conversion of scalar types
+- Crear ScalarConverter con método estático convert(string literal).
+- Detectar el tipo de literal (char, int, float, double, pseudo-literals).
+- Convertir a los otros tipos y mostrar resultados con:
+	char:
+	int:
+	float:
+	double:
+- Mostrar "impossible" o "Non displayable" según corresponda.
+- Ejecución:
+`./convert 0`
+`./convert nan`
+`./convert 42.0f`
 ### Exercise 01: Serialization
 ### Exercise 02: Identify real type
 
