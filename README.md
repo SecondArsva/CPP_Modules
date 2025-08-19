@@ -30,19 +30,21 @@ Módulos de la escuela 42 dedicados al aprendizaje de la programación orientada
 ## Módulo 06: Conversiones de Tipo
 
 ### Exercise 00: Conversion of scalar types
-- Crear ScalarConverter con método estático convert(string literal).
+- Crear `ScalarConverter` con método estático `convert(string literal)`.
 - Detectar el tipo de literal (char, int, float, double, pseudo-literals).
-- Convertir a los otros tipos y mostrar resultados con:
-	char:
-	int:
-	float:
-	double:
+- Convertir a los otros tipos y mostrar resultados con: `char:`  `int:`  `float:`  `double:`
 - Mostrar "impossible" o "Non displayable" según corresponda.
-- Ejecución:
-`./convert 0`
-`./convert nan`
-`./convert 42.0f`
+- Ejecución:  `./convert 0`  `./convert nan`  `./convert 42.0f`
+- Clase no instanciable
+
 ### Exercise 01: Serialization
+- Crear `Serializer` con:
+  - `static uintptr_t serialize(Data* ptr);`
+  - `static Data* deserialize(uintptr_t raw);`
+- Crear estructura `Data` con datos miembros.
+- Verificar que después de deserializar el puntero sigue siendo igual al original.
+- Clase no instanciable.
+
 ### Exercise 02: Identify real type
 
 ## Módulo 07: Plantillas (Templates)
