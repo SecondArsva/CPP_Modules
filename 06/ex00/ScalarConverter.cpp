@@ -41,7 +41,7 @@ static bool isFloat(std::string const &str)
 
 static bool isDouble(std::string const &str)
 {
-	if (str == "nanf" || str == "+inff" || str == "-inff")
+	if (str == "nan" || str == "+inf" || str == "-inf")
 		return (true);
 	char *end;
 	std::strtod(str.c_str(), &end);
@@ -88,7 +88,7 @@ void ScalarConverter::convert(std::string const &literal)
 	{
 		d = std::strtod(literal.c_str(), NULL);
 		i = static_cast<int>(d);
-		f = static_cast<double>(d);
+		f = static_cast<float>(d);
 		c = static_cast<char>(i);
 	}
 	else
