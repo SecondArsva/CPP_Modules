@@ -5,38 +5,46 @@
 #include <deque>
 #include <string>
 #include <stdexcept>
-#include <ctime>    // clock()
-#include <cstddef>  // size_t
-
+#include <climits>
+#include <ctime>
+#include <sys/time.h>
 class PmergeMe {
 public:
-    // Entrada: argv -> valida y convierte a enteros positivos
-    static std::vector<int> parseArgs(int argc, char** argv);
-
-    // Ordenaciones separadas (recomendación del subject)
-    static void sortVector(std::vector<int>& v);
-    static void sortDeque(std::deque<int>& d);
-
-    // Utils para medir tiempo en microsegundos (C++98)
-    static double timeVectorSort(std::vector<int> v);
-    static double timeDequeSort(std::deque<int> d);
+    static bool isPositiveInteger(const std::string &s);
+    static void run(int argc, char** argv);
 
 private:
-    // --- Implementación Ford-Johnson (Merge-Insertion) para vector ---
-    static void fordJohnsonVector(std::vector<int>& a);
+    // Parseo
+    static int parseOne(const std::string &s);
+    template <typename Seq>
+    static Seq parseAll(int argc, char** argv);
 
-    // --- Implementación Ford-Johnson (Merge-Insertion) para deque ---
-    static void fordJohnsonDeque(std::deque<int>& a);
+    // Ford–Johnson (Merge-Insert) para vector y deque
+    static void fordJohnson(std::vector<int> &a);
+    static void fordJohnson(std::deque<int> &a);
 
-    // Secuencia de Jacobsthal para ordenar inserciones
-    static std::vector<size_t> jacobsthalOrder(size_t n);
+    // Implementación genérica interna (iteradores aleatorios) ocultada tras las dos públicas
+    template <typename Seq>
+    static void fj_impl(Seq &a);
 
-    // Inserción binaria en contenedores (versiones separadas)
-    static void binaryInsert(std::vector<int>& sorted, int value);
-    static void binaryInsert(std::deque<int>&  sorted, int value);
+    // Utilidades de Ford–Johnson
+    template <typename T> struct Pair { T big; T small; };
+    template <typename Seq>
+    static void makePairs(const Seq &in, std::vector< Pair<typename Seq::value_type> > &pairs, bool &hasOdd, typename Seq::value_type &odd);
 
-    // Helpers
-    static bool isPositiveInteger(const std::string& s);
+    template <typename T>
+    static std::vector<T> extractBigs(const std::vector< Pair<T> > &pairs);
+
+    template <typename T>
+    static std::vector<T> extractSmallsReordered(const std::vector< Pair<T> > &pairs, const std::vector<T> &sortedBigs);
+
+    template <typename Seq, typename T>
+    static typename Seq::iterator binInsert(Seq &mainChain, const T &value, size_t left, size_t rightExclusive);
+
+    static std::vector<size_t> buildJacobsthalOrder(size_t n);
+
+    // Medición de tiempo
+    static double elapsed_us(const timeval &t0, const timeval &t1);
 };
 
 #endif
