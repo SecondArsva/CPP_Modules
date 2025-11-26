@@ -6,6 +6,17 @@
 #include <cctype>
 
 BitcoinExchange::BitcoinExchange(){}
+
+BitcoinExchange::BitcoinExchange(const BitcoinExchange &other): _db(other._db)
+{}
+
+BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &other)
+{
+    if (this != &other)
+        this->_db = other._db;
+    return *this;
+}
+
 BitcoinExchange::~BitcoinExchange(){}
 
 static bool is_all_space(const std::string &s)
