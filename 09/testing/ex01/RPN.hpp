@@ -7,12 +7,18 @@
 
 class RPN
 {
-	public:
-    	static int evaluate(const std::string& expr);
+    public:
+        // Canonical form
+        RPN();
+        RPN(const RPN &other);
+        RPN &operator=(const RPN &other);
+        ~RPN();
 
-	private:
-    	static bool isOperator(char c);
-    	static int  applyOp(int lhs, int rhs, char op);
+        static int evaluate(const std::string &expr);
+
+    private:
+        static bool isOperator(char c);
+        static int  applyOp(int lhs, int rhs, char op);
 };
 
 #endif

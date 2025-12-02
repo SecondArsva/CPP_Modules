@@ -2,6 +2,21 @@
 #include <sstream>   // std::istringstream
 #include <cctype>    // std::isdigit
 
+RPN::RPN() {}
+
+RPN::RPN(const RPN &other)
+{
+    (void)other;
+}
+
+RPN& RPN::operator=(const RPN &other)
+{
+    (void)other;
+    return *this;
+}
+
+RPN::~RPN() {}
+
 bool RPN::isOperator(char c)
 {
     return (c == '+' || c == '-' || c == '*' || c == '/');
