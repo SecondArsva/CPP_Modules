@@ -6,16 +6,24 @@
 #include <string>
 #include <stdexcept>
 #include <climits>
-#include <ctime>
 #include <sys/time.h>
+
 class PmergeMe {
 public:
+    // Canonical Orthodox (vacía)
+    PmergeMe();
+    PmergeMe(const PmergeMe&);
+    PmergeMe &operator=(const PmergeMe&);
+    ~PmergeMe();
+
+    // API
     static bool isPositiveInteger(const std::string &s);
     static void run(int argc, char** argv);
 
 private:
     // Parseo
     static int parseOne(const std::string &s);
+
     template <typename Seq>
     static Seq parseAll(int argc, char** argv);
 
@@ -29,17 +37,23 @@ private:
 
     // Utilidades de Ford–Johnson
     template <typename T> struct Pair { T big; T small; };
+
     template <typename Seq>
-    static void makePairs(const Seq &in, std::vector< Pair<typename Seq::value_type> > &pairs, bool &hasOdd, typename Seq::value_type &odd);
+    static void makePairs(const Seq &in,
+                          std::vector< Pair<typename Seq::value_type> > &pairs,
+                          bool &hasOdd,
+                          typename Seq::value_type &odd);
 
     template <typename T>
     static std::vector<T> extractBigs(const std::vector< Pair<T> > &pairs);
 
     template <typename T>
-    static std::vector<T> extractSmallsReordered(const std::vector< Pair<T> > &pairs, const std::vector<T> &sortedBigs);
+    static std::vector<T> extractSmallsReordered(const std::vector< Pair<T> > &pairs,
+                                                 const std::vector<T> &sortedBigs);
 
     template <typename Seq, typename T>
-    static typename Seq::iterator binInsert(Seq &mainChain, const T &value, size_t left, size_t rightExclusive);
+    static typename Seq::iterator binInsert(Seq &mainChain, const T &value,
+                                            size_t left, size_t rightExclusive);
 
     static std::vector<size_t> buildJacobsthalOrder(size_t n);
 
